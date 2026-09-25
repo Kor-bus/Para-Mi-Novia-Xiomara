@@ -1,0 +1,758 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Para Xiomara ❤️</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Montserrat:wght@300;400;500;600&family=Parisienne&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    overflow: hidden;
+    font-family: 'Montserrat', sans-serif;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255, 115, 150, .18), transparent 30%),
+        radial-gradient(circle at 80% 80%, rgba(255, 70, 110, .14), transparent 30%),
+        linear-gradient(135deg, #16070d, #2b0b16 50%, #120509);
+    color: white;
+}
+
+/* CORAZONES FLOTANTES */
+
+.particles {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    bottom: -30px;
+    color: rgba(255, 160, 180, .55);
+    font-size: 14px;
+    animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) scale(.7) rotate(0deg);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-110vh) scale(1.2) rotate(35deg);
+        opacity: 0;
+    }
+}
+
+/* PANTALLA INICIAL */
+
+.screen {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: opacity 1s ease, visibility 1s ease;
+
+    z-index: 10;
+}
+
+.screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.intro {
+    text-align: center;
+}
+
+.small-text {
+    font-size: 12px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.65);
+
+    margin-bottom: 30px;
+}
+
+/* CORAZÓN */
+
+.heart-button {
+    width: 170px;
+    height: 170px;
+
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+
+    position: relative;
+
+    transition: transform .4s ease;
+}
+
+.heart-button:hover {
+    transform: scale(1.08);
+}
+
+.heart {
+    position: absolute;
+
+    width: 105px;
+    height: 105px;
+
+    background: linear-gradient(135deg, #ff6b91, #d9164d);
+
+    transform: rotate(-45deg);
+
+    left: 33px;
+    top: 33px;
+
+    filter: drop-shadow(0 0 30px rgba(255, 50, 100, .65));
+
+    animation: heartbeat 1.5s infinite;
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+
+    position: absolute;
+
+    width: 105px;
+    height: 105px;
+
+    background: inherit;
+
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -52px;
+    left: 0;
+}
+
+.heart::after {
+    top: 0;
+    left: 52px;
+}
+
+.heart-text {
+    position: absolute;
+
+    z-index: 2;
+
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: 'Parisienne', cursive;
+
+    font-size: 28px;
+
+    transform: translateY(3px);
+}
+
+.click {
+    margin-top: 28px;
+
+    font-size: 13px;
+
+    letter-spacing: 3px;
+
+    color: rgba(255,255,255,.7);
+}
+
+@keyframes heartbeat {
+
+    0%, 100% {
+        transform: rotate(-45deg) scale(1);
+    }
+
+    50% {
+        transform: rotate(-45deg) scale(1.1);
+    }
+
+}
+
+/* CARTA */
+
+.letter {
+    position: fixed;
+
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: scale(.96);
+
+    transition:
+        opacity 1s ease,
+        visibility 1s ease,
+        transform 1s ease;
+}
+
+.letter.show {
+    opacity: 1;
+    visibility: visible;
+
+    transform: scale(1);
+}
+
+.card {
+
+    width: min(850px, 100%);
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    padding: 55px 65px;
+
+    position: relative;
+
+    background: rgba(255,255,255,.075);
+
+    border: 1px solid rgba(255,255,255,.16);
+
+    border-radius: 28px;
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 30px 100px rgba(0,0,0,.45),
+        inset 0 1px 0 rgba(255,255,255,.08);
+}
+
+.card::-webkit-scrollbar {
+    width: 4px;
+}
+
+.card::-webkit-scrollbar-thumb {
+    background: rgba(255,120,150,.5);
+
+    border-radius: 10px;
+}
+
+/* CABECERA */
+
+.top-heart {
+    text-align: center;
+
+    font-size: 35px;
+
+    margin-bottom: 18px;
+
+    animation: heartbeatSimple 1.8s infinite;
+}
+
+@keyframes heartbeatSimple {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.12);
+    }
+
+}
+
+.date {
+
+    text-align: center;
+
+    text-transform: uppercase;
+
+    letter-spacing: 5px;
+
+    font-size: 11px;
+
+    color: #ff9db6;
+
+    margin-bottom: 15px;
+}
+
+h1 {
+
+    text-align: center;
+
+    font-family: 'Parisienne', cursive;
+
+    font-size: clamp(55px, 9vw, 90px);
+
+    font-weight: normal;
+
+    color: #fff;
+
+    text-shadow: 0 0 30px rgba(255,100,140,.25);
+}
+
+.subtitle {
+
+    text-align: center;
+
+    font-family: 'DM Serif Display', serif;
+
+    font-style: italic;
+
+    color: rgba(255,255,255,.75);
+
+    font-size: 17px;
+
+    margin-bottom: 35px;
+}
+
+.divider {
+
+    width: 80px;
+
+    height: 1px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #ff7899,
+        transparent
+    );
+
+    margin: 0 auto 35px;
+}
+
+/* MENSAJE */
+
+.message {
+
+    max-width: 680px;
+
+    margin: auto;
+
+    font-size: 15px;
+
+    line-height: 2;
+
+    font-weight: 300;
+
+    color: rgba(255,255,255,.86);
+}
+
+.message p {
+    margin-bottom: 20px;
+}
+
+.highlight {
+
+    color: #ff9db6;
+
+    font-weight: 500;
+}
+
+/* FRASE */
+
+.quote {
+
+    margin: 35px auto;
+
+    padding: 25px;
+
+    border-left: 2px solid #ff7194;
+
+    background: rgba(255,100,140,.06);
+
+    font-family: 'DM Serif Display', serif;
+
+    font-style: italic;
+
+    font-size: 21px;
+
+    line-height: 1.6;
+
+    color: #ffe3ea;
+}
+
+/* FIRMA */
+
+.signature {
+
+    text-align: right;
+
+    margin-top: 35px;
+}
+
+.signature span {
+
+    display: block;
+
+    font-family: 'Parisienne', cursive;
+
+    font-size: 45px;
+
+    color: #ff9db6;
+}
+
+.signature small {
+
+    letter-spacing: 2px;
+
+    color: rgba(255,255,255,.55);
+}
+
+/* CERRAR */
+
+.close {
+
+    position: absolute;
+
+    top: 22px;
+    right: 25px;
+
+    width: 35px;
+    height: 35px;
+
+    border: 1px solid rgba(255,255,255,.15);
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,.05);
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 18px;
+
+    transition: .3s;
+}
+
+.close:hover {
+
+    background: rgba(255,100,140,.2);
+
+    transform: rotate(90deg);
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 600px) {
+
+    .card {
+
+        padding: 45px 25px;
+
+        border-radius: 20px;
+    }
+
+    .message {
+
+        font-size: 14px;
+
+        line-height: 1.9;
+    }
+
+    .quote {
+
+        font-size: 18px;
+    }
+
+    .signature span {
+
+        font-size: 38px;
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- CORAZONES FLOTANDO -->
+
+<div class="particles" id="particles"></div>
+
+
+<!-- PANTALLA INICIAL -->
+
+<section class="screen" id="intro">
+
+    <div class="intro">
+
+        <div class="small-text">
+            Tengo algo que decirte...
+        </div>
+
+        <button class="heart-button" id="openButton">
+
+            <div class="heart"></div>
+
+            <div class="heart-text">
+                X
+            </div>
+
+        </button>
+
+        <div class="click">
+            HAZ CLICK ❤️
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CARTA -->
+
+<section class="letter" id="letter">
+
+    <div class="card">
+
+        <button class="close" id="closeButton">
+            ×
+        </button>
+
+
+        <div class="top-heart">
+            ❤️
+        </div>
+
+
+        <div class="date">
+            Nuestro tercer mes
+        </div>
+
+
+        <h1>
+            Xiomara
+        </h1>
+
+
+        <div class="subtitle">
+            Para la persona que hace mis días mucho más bonitos
+        </div>
+
+
+        <div class="divider"></div>
+
+
+        <div class="message">
+
+            <p>
+                <span class="highlight">
+                    Mi amor Xiomara:
+                </span>
+            </p>
+
+
+            <p>
+                Hoy cumplimos <span class="highlight">3 meses</span>.
+                Aunque para algunas personas puede parecer poco tiempo,
+                para mí ha sido suficiente para darme cuenta de lo
+                importante que eres.
+            </p>
+
+
+            <p>
+                Quiero que sepas que cada momento contigo tiene un lugar
+                especial. Desde las conversaciones más simples hasta esos
+                momentos que se convierten en recuerdos que quiero guardar
+                para siempre.
+            </p>
+
+
+            <p>
+                Gracias por estar conmigo.
+                Gracias por hacerme sonreír.
+                Gracias por escucharme.
+                Gracias por ser tú.
+                Hay algo muy bonito en poder compartir parte de mi vida
+                contigo. Y sé que tengo a alguien muy especial a mi lado.
+            </p>
+
+
+            <div class="quote">
+
+                “Si pudiera volver al día en que te conocí,
+                elegiría volver a encontrarte una y otra vez.”
+
+            </div>
+
+
+            <p>
+                Estos tres meses son solo el comienzo de todo lo que espero
+                vivir contigo. Quiero seguir creando recuerdos.
+                Quiero seguir aprendiendo de ti.
+                Quiero seguir disfrutando de cada momento que tengamos.
+            </p>
+
+
+            <p>
+                No olvides nunca lo mucho que significas para mí.
+                Eres una persona muy importante.
+                Me hace feliz poder llamarte mi novia.
+            </p>
+
+
+            <p>
+                Feliz <span class="highlight">3 meses, amor mío</span>.
+                Gracias por estar en mi vida.
+                Gracias por hacer que estos meses sean tan especiales.
+            </p>
+
+        </div>
+
+
+        <div class="signature">
+
+            Con todo mi amor,
+
+            <span>
+                Nelson ❤️
+            </span>
+
+            <small>
+                Tu novio
+            </small>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<script>
+
+/* ABRIR CARTA */
+
+const openButton = document.getElementById("openButton");
+
+const intro = document.getElementById("intro");
+
+const letter = document.getElementById("letter");
+
+const closeButton = document.getElementById("closeButton");
+
+
+openButton.addEventListener("click", () => {
+
+    intro.classList.add("hidden");
+
+    setTimeout(() => {
+
+        letter.classList.add("show");
+
+    }, 500);
+
+});
+
+
+/* CERRAR CARTA */
+
+closeButton.addEventListener("click", () => {
+
+    letter.classList.remove("show");
+
+    setTimeout(() => {
+
+        intro.classList.remove("hidden");
+
+    }, 500);
+
+});
+
+
+/* CORAZONES FLOTANTES */
+
+const particles =
+    document.getElementById("particles");
+
+const symbols = [
+    "♡",
+    "♥",
+    "❤",
+    "✦",
+    "♡"
+];
+
+
+function createParticle() {
+
+    const particle =
+        document.createElement("div");
+
+    particle.className = "particle";
+
+    particle.innerHTML =
+        symbols[
+            Math.floor(
+                Math.random() * symbols.length
+            )
+        ];
+
+    particle.style.left =
+        Math.random() * 100 + "%";
+
+    particle.style.fontSize =
+        (10 + Math.random() * 18) + "px";
+
+    particle.style.animationDuration =
+        (7 + Math.random() * 9) + "s";
+
+    particle.style.animationDelay =
+        Math.random() * 3 + "s";
+
+    particles.appendChild(particle);
+
+
+    setTimeout(() => {
+
+        particle.remove();
+
+    }, 17000);
+
+}
+
+
+setInterval(createParticle, 700);
+
+
+for(let i = 0; i < 12; i++) {
+
+    setTimeout(
+        createParticle,
+        i * 300
+    );
+
+}
+
+</script>
+
+</body>
+</html>
